@@ -1,0 +1,5 @@
+.vscode
+nbproject/
+scriptBD/BorraDBGJLDWESLoginLogoff.sql
+scriptBD/CargaInicialDBGJLDWESLoginLogoff.sql
+scriptBD/CreaDBGJLDWESLoginLogoff.sql
