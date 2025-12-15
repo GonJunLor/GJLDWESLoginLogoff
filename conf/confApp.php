@@ -13,5 +13,5 @@ $controller=[
 $view=[
     'layout' => 'view/Layout.php',
     'inicioPublico' => 'view/vInicioPublico.php'
-]
+];
 ?>

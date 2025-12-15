@@ -24,6 +24,7 @@
     </form> -->
     <form action="" method="post">
         <button name="iniciarSesion" class="boton">
+            Iniciar Sesion
             <!-- <span><?php echo $textoBotonIniciarSesion; ?></span> -->
         </button>
     </form>
