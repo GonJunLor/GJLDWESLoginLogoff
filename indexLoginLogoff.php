@@ -16,6 +16,10 @@ if (!isset($_SESSION['paginaEnCurso'])) {
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
 }
 
+if (isset($_REQUEST['iniciarSesion'])) {
+    $_SESSION['paginaEnCurso'] = 'login';
+}
+
 // cargamos el controlador de la pagina en curso
 require_once $controller[$_SESSION['paginaEnCurso']];
 
