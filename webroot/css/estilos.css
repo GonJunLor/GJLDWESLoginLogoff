@@ -133,7 +133,8 @@ main>h2{
 /* Inicio Público */
 .imagenesCentrales img{
     width: 400px;
-
+    border: 1px solid rgb(213, 183, 183);
+    border-radius: 10px;
 }
 
 
@@ -193,6 +194,53 @@ main>h2{
 #login #usuario, #contrasena{
     background-color: #fff1de;
 }
+
+/* Para página detalle */
+.detalle>h3{
+    text-align: center;
+    padding: 1em;
+    margin-top: 2em;
+}
+.detalle{
+    margin: 20px 20px 20px 20px;
+}
+.detalle table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    overflow: auto;
+}
+.detalle th{
+    background-color: gainsboro;
+    border: 1px solid black;
+    padding: 3px;
+}
+.detalle td{
+    border: 1px solid black;
+    padding: 3px;
+    /* word-break: break-all; */
+    overflow-wrap: break-word;
+}
+.detalle tr td:first-child{
+    background-color: #8db7faff;
+    font-weight: bold;
+}
+.detalle tr td:first-child, th:first-child{width: 30%;}
+.detalle tr td:nth-of-type(2), th:nth-of-type(2){width: 69%;}
+.detalle h3{
+    text-align: center;
+    margin: 10px;
+}
+body {
+    background-color: white !important; /* Fuerza el fondo a blanco */
+    color: black !important; /* Fuerza el texto a negro */
+}
+#phpinfo{
+    background-color: white; 
+    color: black;
+}
+#phpinfo .v{background-color: white;}
+#phpinfo .e{background-color: #8db7faff;}
 
 /* Pie de pagína */
 body>footer{
