@@ -19,9 +19,15 @@
 </head>
 <body>
     <div id="aviso">Login Logoff</div>
-    <nav>
-        <a href="./indexLoginLogoff.php"><img src="webroot/media/images/logo.png" alt="logo"></a>
-        <h2>Inicio público</h2>
+    <nav class="<?php echo $estadoBotonInicarSesion ?>">
+        <form action="" method="post">
+            <button name="inicio" class="botonLogo">
+                <img src="webroot/media/images/logo.png" alt="logo">
+                <!-- <span><?php echo $textoBotonIniciarSesion; ?></span> -->
+            </button>
+        </form>
+        <a href="./indexLoginLogoff.php"></a>
+        <h2><?php echo $titulo[$_SESSION['paginaEnCurso']]; ?></h2>
         <!-- <form action="" method="post">
             <button type="submit" name="idioma" value="ES" id="ES" 
             style="background-color:<?php echo $_COOKIE["idioma"]=="ES"? '#c2bcb9' : 'white';?>">
@@ -38,8 +44,8 @@
         </form> -->
         <form action="" method="post">
             <button name="iniciarSesion" class="boton">
-                Iniciar Sesion
-                <!-- <span><?php echo $textoBotonIniciarSesion; ?></span> -->
+                <!-- Iniciar Sesion -->
+                <span><?php echo $textoBotonIniciarSesion; ?></span>
             </button>
         </form>
     </nav>

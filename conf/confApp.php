@@ -10,7 +10,7 @@ $controller=[
     'inicioPublico' => 'controller/cInicioPublico.php',
     'login' => 'controller/cLogin.php',
     'inicioPrivado' => 'controller/cInicioPrivado.php',
-    'detalles' => 'controller/cDetalles.php'
+    'detalle' => 'controller/cDetalle.php'
 ];
 
 $view=[
@@ -18,6 +18,14 @@ $view=[
     'inicioPublico' => 'view/vInicioPublico.php',
     'login' => 'view/vLogin.php',
     'inicioPrivado' => 'view/vInicioPrivado.php',
-    'detalles' => 'view/vDetalles.php'
+    'detalle' => 'view/vDetalle.php'
+];
+
+$titulo=[
+    'layout' => 'Layout',
+    'inicioPublico' => 'Inicio Público',
+    'login' => 'Login',
+    'inicioPrivado' => 'Inicio Privado',
+    'detalle' => 'Detalle'
 ];
 ?>

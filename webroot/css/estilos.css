@@ -111,6 +111,12 @@ button[type="submit"] img{
     width: 20px;
     height: 20px;
 }
+.oculto{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
 /* Contenido */
 main{
     min-height: 75vh;
@@ -122,6 +128,70 @@ main>h1{
 main>h2{
     text-align: center;
     margin: 5px;
+}
+
+/* Inicio Público */
+.imagenesCentrales img{
+    width: 400px;
+
+}
+
+
+/* Para Login */
+#login{
+    width:600px;
+    height: 500px;
+    min-height: 500px;
+    margin: auto;
+    background-color: #eeeeee;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    margin-bottom: 190px;
+}
+#login h2{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#login p{margin:10px 60px;}
+#login form *{
+    margin-top: 10px; 
+}
+#login input{
+    padding: 15px 20px;
+    margin: 20px 22px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid black;
+    width: 500px;
+    background-color: transparent;
+}
+#entrar, #cancelar{
+    margin-left: 100px;
+}
+#registrarse{
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    margin: 20px 60px;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 0px solid #252525ff;
+}
+#login #registrarse{
+    width: 200px;
+    background-color: #5433eb;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+#login #usuario, #contrasena{
+    background-color: #fff1de;
 }
 
 /* Pie de pagína */
