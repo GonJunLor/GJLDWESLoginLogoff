@@ -28,4 +28,6 @@ $titulo=[
     'inicioPrivado' => 'Inicio Privado',
     'detalle' => 'Detalle'
 ];
+$textoBotonIniciarSesion = 'Iniciar Sesión';
+$estadoBotonInicarSesion = 'visible';
 ?>
