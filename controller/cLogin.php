@@ -13,6 +13,7 @@ if (isset($_REQUEST['cancelar'])) {
 
 // entramos al inicio privado al dar a entrar
 if (isset($_REQUEST['entrar'])) {
+    // poner control de validar si usuario está en bbdd
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
     header('Location: indexLoginLogoff.php');
     exit;

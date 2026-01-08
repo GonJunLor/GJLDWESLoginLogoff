@@ -6,7 +6,8 @@
 
 final class UsuarioPDO {
     public static function validarUsuario($codUsuario, $password){
-        $
+        $salida = false;
+
         $sql = <<<CONSULTASQL
             SELECT * FROM T01_Usuario
             WHERE T01_CodUsuario = :usuario
@@ -21,10 +22,10 @@ final class UsuarioPDO {
         $consulta = DBPDO::ejecutarConsulta($sql,$parametros);
         $usuarioBD = $consulta->fetchObject();
         if ($usuarioBD) {
-            
+            $salida = true;
         }
 
-        return 
+        return $salida ;
     }
 
     public static function altaUsuario(){
