@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="aviso">Login Logoff</div>
-    <nav class="<?php echo $estadoBotonInicarSesion ?>">
+    <nav class="<?php echo $estadoBarraNavegacion ?>">
         <form action="" method="post">
             <button name="inicio" class="botonLogo">
                 <img src="webroot/media/images/logo.png" alt="logo">
@@ -28,7 +28,7 @@
         </form>
         <a href="./indexLoginLogoff.php"></a>
         <h2><?php echo $titulo[$_SESSION['paginaEnCurso']]; ?></h2>
-        <!-- <form action="" method="post">
+        <form action="" method="post">
             <button type="submit" name="idioma" value="ES" id="ES" 
             style="background-color:<?php echo $_COOKIE["idioma"]=="ES"? '#c2bcb9' : 'white';?>">
                 <img src="webroot/media/images/banderaEs.png" alt="es">
@@ -41,16 +41,9 @@
             style="background-color:<?php echo $_COOKIE["idioma"]=="FR"? '#c2bcb9' : 'white';?>">
                 <img src="webroot/media/images/banderaFr.png" alt="fr">
             </button>
-        </form> -->
-        <form action="" method="post">
-            <button name="iniciarSesion" class="boton">
-                <!-- Iniciar Sesion -->
-                <span><?php echo $textoBotonIniciarSesion; ?></span>
-            </button>
         </form>
-    </nav>
-    <main>
-        <?php require_once $view[$_SESSION['paginaEnCurso']]; ?>
+        
+    <?php require_once $view[$_SESSION['paginaEnCurso']]; ?>
     </main>
     <footer id="pie">
         <div>

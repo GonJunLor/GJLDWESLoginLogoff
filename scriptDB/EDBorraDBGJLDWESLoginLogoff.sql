@@ -5,6 +5,6 @@
  */
 
 
-drop database if exists DBGJLDWESLoginLogoffTema5;
+drop database if exists DBGJLDWESLoginLogoff;
 
-drop user if exists 'userGJLDWESLoginLogoffTema5'@'%';
+drop user if exists 'userGJLDWESLoginLogoff'@'%';

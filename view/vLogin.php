@@ -5,6 +5,9 @@
 */
 
 ?>
+
+</nav>
+<main>
 <div id="login">
     <h2>INICIO SESIÓN</h2>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"> 

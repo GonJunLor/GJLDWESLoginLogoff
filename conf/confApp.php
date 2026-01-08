@@ -6,6 +6,10 @@
 
 require_once 'core/231018libreriaValidacion.php';
 
+//Cargamos la definición de la clase
+require_once 'model/Usuario.php'; 
+require_once 'model/UsuarioPDO.php';
+
 $controller=[
     'inicioPublico' => 'controller/cInicioPublico.php',
     'login' => 'controller/cLogin.php',
@@ -29,5 +33,5 @@ $titulo=[
     'detalle' => 'Detalle'
 ];
 $textoBotonIniciarSesion = 'Iniciar Sesión';
-$estadoBotonInicarSesion = 'visible';
+$estadoBarraNavegacion = 'visible';
 ?>

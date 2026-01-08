@@ -4,7 +4,7 @@
  * Script de creación de base de datos
  */
 
-create table if not exists DBGJLDWESLoginLogoffTema5.T02_Departamento(
+create table if not exists DBGJLDWESLoginLogoff.T02_Departamento(
     T02_CodDepartamento varchar(3) primary key,
     T02_DescDepartamento varchar(255),
     T02_FechaCreacionDepartamento datetime not null,
@@ -12,7 +12,7 @@ create table if not exists DBGJLDWESLoginLogoffTema5.T02_Departamento(
     T02_FechaBajaDepartamento datetime null
 )engine=innodb;
 
-create table if not exists DBGJLDWESLoginLogoffTema5.T01_Usuario(
+create table if not exists DBGJLDWESLoginLogoff.T01_Usuario(
     T01_CodUsuario varchar(10) not null primary key,
     T01_Password varchar(64) not null,
     T01_DescUsuario varchar(255) not null,

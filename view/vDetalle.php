@@ -5,7 +5,13 @@
 */
 
 ?>
-
+<form action="" method="post">
+    <button name="cerrarSesion" class="boton">
+        <span>Cerrar Sesión</span>
+    </button>
+</form>
+</nav>
+<main>
 <form action="" method="post">
     <button name="volver" class="boton"><span>Volver</span></button>
 </form>

@@ -191,7 +191,7 @@ main>h2{
     font-weight: bold;
     /* font-family: 'Times New Roman', Times, serif; */
 }
-#login #usuario, #contrasena{
+#login #usuario, #login #contrasena{
     background-color: #fff1de;
 }
 

@@ -3,6 +3,9 @@
 * @author: Gonzalo Junquera Lorenzo
 * @since: 18/12/2025
 */
+
+require_once  'conf/EDconfDBPDO.php';
+
 final class DBPDO{
     public static function ejecutarConsulta($sentenciaSQL, $parametros){
         try {

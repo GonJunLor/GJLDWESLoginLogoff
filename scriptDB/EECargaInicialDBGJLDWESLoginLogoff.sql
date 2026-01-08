@@ -4,7 +4,7 @@
  * Script de carga incial de base de datos
  */
 
-use DBGJLDWESLoginLogoffTema5;
+use DBGJLDWESLoginLogoff;
 
 insert into T02_Departamento values
         ('INF','Departamento de informatica.',now(),1235.5,null),
