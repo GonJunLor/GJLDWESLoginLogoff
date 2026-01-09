@@ -9,6 +9,7 @@ require_once 'core/231018libreriaValidacion.php';
 //Cargamos la definición de la clase
 require_once 'model/Usuario.php'; 
 require_once 'model/UsuarioPDO.php';
+require_once 'model/DBPDO.php';
 
 $controller=[
     'inicioPublico' => 'controller/cInicioPublico.php',

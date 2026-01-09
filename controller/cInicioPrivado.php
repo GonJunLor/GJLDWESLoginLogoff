@@ -40,7 +40,7 @@ if (isset($_REQUEST['idioma'])) {
 $avInicioPrivado=[
     'descUsuario' => $_SESSION['usuarioGJLDWESLoginLogoff']->getDescUsuario(),
     'numConexiones' => $_SESSION['usuarioGJLDWESLoginLogoff']->getNumAccesos(),
-    'fechaAnterior' => $_SESSION['usuarioGJLDWESLoginLogoff']->getFechaHoraUltimaConexionAnterior()
+    'fechaHoraUltimaConexionAnterior' => $_SESSION['usuarioGJLDWESLoginLogoff']->getFechaHoraUltimaConexionAnterior()
 ];
 
 // cargamos el layout principal, ya éste cargará cada página a parte de la estructura principal de la web

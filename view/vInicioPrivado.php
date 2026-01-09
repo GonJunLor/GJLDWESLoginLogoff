@@ -23,7 +23,7 @@
         echo '<h2>Bienvenido '.$avInicioPrivado['descUsuario'].'.</h2>';
         echo '<h2>Esta el la '.$avInicioPrivado['numConexiones'].' vez que se conecta.</h2>';
         if (($avInicioPrivado['numConexiones'])>1) {
-            echo '<h2>Usted se conectó por última vez el '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaAnterior']->getTimestamp()).'.</h2>';
+            echo '<h2>Usted se conectó por última vez el '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaHoraUltimaConexionAnterior']->getTimestamp()).'.</h2>';
         }
         
     }
@@ -33,7 +33,7 @@
         echo '<h2>Welcome '.$avInicioPrivado['descUsuario'].'.</h2>';
         echo '<h2>This is the '.$avInicioPrivado['numConexiones'].' time you have connected.</h2>';
         if (($avInicioPrivado['numConexiones'])>1) {
-            echo '<h2>You were last connected on '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaAnterior']->getTimestamp()).'.</h2>';
+            echo '<h2>You were last connected on '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaHoraUltimaConexionAnterior']->getTimestamp()).'.</h2>';
         }
     }
     if ($_COOKIE["idioma"]=="FR") {
@@ -42,7 +42,7 @@
         echo '<h2>Bienvenue '.$avInicioPrivado['descUsuario'].'.</h2>';
         echo '<h2>Voici votre '.$avInicioPrivado['numConexiones'].' e connexion.</h2>';
         if (($avInicioPrivado['numConexiones'])>1) {
-            echo '<h2>Votre dernière connexion remonte au '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaAnterior']->getTimestamp()).'.</h2>';
+            echo '<h2>Votre dernière connexion remonte au '.strftime("%d de %B de %Y a las %H:%M:%S", $avInicioPrivado['fechaHoraUltimaConexionAnterior']->getTimestamp()).'.</h2>';
         }
     }
     
