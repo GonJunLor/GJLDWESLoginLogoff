@@ -1,11 +1,8 @@
 <?php
 /**
 * @author: Gonzalo Junquera Lorenzo
-* @since: 18/12/2025
+* @since: 11/01/2026
 */
-
-require_once 'DBPDO.php';
-require_once 'Usuario.php';
 
 final class UsuarioPDO {
 
@@ -65,8 +62,29 @@ final class UsuarioPDO {
         return $oUsuario;
     }
 
-    public static function altaUsuario(){
-        
+    public static function altaUsuario($codUsuario, $password, $descUsuario){
+        $oUsuario = null;
+
+        // SQL para insertar el nuevo registro
+        // El perfil por defecto debe ser 'usuario'
+        $sql = <<<SQL
+            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
+            VALUES (:usuario, SHA2(:password, 256), :descripcion, 'usuario')
+        SQL;
+
+        $consulta = DBPDO::ejecutarConsulta($sql, [
+            ':usuario' => $codUsuario,
+            ':password' => $codUsuario . $password,
+            ':descripcion' => $descUsuario
+        ]);
+
+        if ($consulta) {
+            // Si la inserción tiene éxito, se valida al usuario para obtener el objeto completo
+            // (y se rellena las fechas iniciales y el número de conexiones)
+            $oUsuario = self::validarUsuario($codUsuario, $password);
+        }
+
+        return $oUsuario;
     }
     public static function modificarUsuario(){
         

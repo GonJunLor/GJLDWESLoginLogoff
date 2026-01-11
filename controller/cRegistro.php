@@ -1,20 +1,12 @@
 <?php
 /**
 * @author: Gonzalo Junquera Lorenzo
-* @since: 16/12/2025
+* @since: 11/01/2026
 */
 
-// volvemos al index principal al dar a cancelar
 if (isset($_REQUEST['cancelar'])) {
-    $_SESSION['paginaEnCurso'] = 'inicioPublico';
-    header('Location: indexLoginLogoff.php');
-    exit;
-}
-
-// vamos a la pagina de registro
-if (isset($_REQUEST['registro'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-    $_SESSION['paginaEnCurso'] = 'registro';
+    $_SESSION['paginaEnCurso'] = 'login';
     header('Location: indexLoginLogoff.php');
     exit;
 }
@@ -22,19 +14,22 @@ if (isset($_REQUEST['registro'])) {
 $entradaOK = true; //Variable que nos indica que todo va bien
 $aErrores = [  //Array donde recogemos los mensajes de error
     'nombre' => '', 
-    'contrasena'=>''
+    'contrasena'=>'',
+    'descUsuario'=>''
 ];
 $aRespuestas=[ //Array donde recogeremos la respuestas correctas (si $entradaOK)
     'nombre' => '',  
-    'contrasena'=>''
+    'contrasena'=>'',
+    'descUsuario'=>''
 ]; 
 
 //Para cada campo del formulario: Validar entrada y actuar en consecuencia
 if (isset($_REQUEST["entrar"])) {//Código que se ejecuta cuando se envía el formulario
 
     // Validamos los datos del formulario
-    $aErrores['usuario']= validacionFormularios::comprobarAlfabetico($_REQUEST['usuario'],100,0,1,);
-    $aErrores['contrasena'] = validacionFormularios::validarPassword($_REQUEST['contrasena'],20,4,2);
+    $aErrores['usuario']= validacionFormularios::comprobarAlfabetico($_REQUEST['usuario'],100,4,1);
+    $aErrores['contrasena'] = validacionFormularios::validarPassword($_REQUEST['contrasena'],20,4,2,1);
+    $aErrores['descUsuario']= validacionFormularios::comprobarAlfabetico($_REQUEST['descUsuario'],255,4,1,);
     
     foreach($aErrores as $campo => $valor){
         if(!empty($valor)){ // Comprobar si el valor es válido
@@ -46,20 +41,24 @@ if (isset($_REQUEST["entrar"])) {//Código que se ejecuta cuando se envía el fo
     $entradaOK = false;
 }
 
-// Si la validación de datos es correcta comprobamos si está en la BBDD
+// Si la validación de datos es correcta procedemos a crear el usuario
 if ($entradaOK) {
     $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
 
-    // si está el usuario en la BBDD lo incluimos en la sesión y avanzamos a la pag privada
-    if (isset($oUsuario)) {
+    // si NO está el usuario en la BBDD lo creamos y lo metemos en la sesión
+    if (!isset($oUsuario)) {
+        $oUsuario = UsuarioPDO::altaUsuario($_REQUEST['usuario'], $_REQUEST['contrasena'], $_REQUEST['descUsuario']);
+
         $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
 
+        $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
         $_SESSION['paginaEnCurso'] = 'inicioPrivado';
         header('Location: indexLoginLogoff.php');
         exit;
+    } else {
+        $aErrores['usuario'] = "El nombre de usuario ya existe.";
     }
 }
-// si la validación de entrada no es correcta o el usuario no está en la BBDD recargamos el login 
 
 $estadoBarraNavegacion = 'oculto';
 // cargamos el layout principal, ya éste cargará cada página a parte de la estructura principal de la web

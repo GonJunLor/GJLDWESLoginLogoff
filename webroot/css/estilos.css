@@ -174,7 +174,7 @@ main>h2{
 #entrar, #cancelar{
     margin-left: 100px;
 }
-#registrarse{
+#registro{
     padding: 10px 25px;
     font-size: 1.2rem;
     margin: 20px 60px;
@@ -183,7 +183,7 @@ main>h2{
     font-family: 'Times New Roman', Times, serif;
     border: 0px solid #252525ff;
 }
-#login #registrarse{
+#login #registro{
     width: 200px;
     background-color: #5433eb;
     color: white;
@@ -193,6 +193,13 @@ main>h2{
 }
 #login #usuario, #login #contrasena{
     background-color: #fff1de;
+}
+
+#login #descUsuario{background-color: #fff1de;}
+
+/* Para registro */
+.error{
+    color: red;
 }
 
 /* Para página detalle */
