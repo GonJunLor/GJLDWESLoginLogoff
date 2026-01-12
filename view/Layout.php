@@ -23,7 +23,6 @@
         <form action="" method="post">
             <button name="inicio" class="botonLogo">
                 <img src="webroot/media/images/logo.png" alt="logo">
-                <!-- <span><?php echo $textoBotonIniciarSesion; ?></span> -->
             </button>
         </form>
         <a href="./indexLoginLogoff.php"></a>

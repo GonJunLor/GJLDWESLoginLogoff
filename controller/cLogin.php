@@ -59,6 +59,8 @@ if (isset($_REQUEST["entrar"])) {//Código que se ejecuta cuando se envía el fo
 // Si la validación de datos es correcta comprobamos si está en la BBDD
 if ($entradaOK) {
 
+    $oUsuario = UsuarioPDO::registrarUltimaConexion($oUsuario);
+    
     $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
 
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
@@ -68,6 +70,6 @@ if ($entradaOK) {
 }
 // si la validación de entrada no es correcta o el usuario no está en la BBDD recargamos el login 
 
-$estadoBarraNavegacion = 'oculto';
+// $estadoBarraNavegacion = 'oculto';
 // cargamos el layout principal, ya éste cargará cada página a parte de la estructura principal de la web
 require_once $view['layout'];
