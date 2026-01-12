@@ -20,6 +20,7 @@ if (isset($_REQUEST['registro'])) {
 }
 
 $entradaOK = true; //Variable que nos indica que todo va bien
+$oUsuario = null; // Variable para el objeto usuario
 $aErrores = [  //Array donde recogemos los mensajes de error
     'nombre' => '', 
     'contrasena'=>''
@@ -42,22 +43,28 @@ if (isset($_REQUEST["entrar"])) {//Código que se ejecuta cuando se envía el fo
         } 
     }
     
+    if ($entradaOK) {
+        $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
+
+        // si no esta en la BBDD ponemos a false
+        if (!isset($oUsuario)) {
+            $entradaOK = false;
+        }
+    }
+    
 } else {//Código que se ejecuta antes de rellenar el formulario
     $entradaOK = false;
 }
 
 // Si la validación de datos es correcta comprobamos si está en la BBDD
 if ($entradaOK) {
-    $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
 
-    // si está el usuario en la BBDD lo incluimos en la sesión y avanzamos a la pag privada
-    if (isset($oUsuario)) {
-        $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
+    $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
 
-        $_SESSION['paginaEnCurso'] = 'inicioPrivado';
-        header('Location: indexLoginLogoff.php');
-        exit;
-    }
+    $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+    header('Location: indexLoginLogoff.php');
+    exit;
+
 }
 // si la validación de entrada no es correcta o el usuario no está en la BBDD recargamos el login 
 
