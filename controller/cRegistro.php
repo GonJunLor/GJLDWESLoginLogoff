@@ -13,12 +13,12 @@ if (isset($_REQUEST['cancelar'])) {
 
 $entradaOK = true; //Variable que nos indica que todo va bien
 $aErrores = [  //Array donde recogemos los mensajes de error
-    'nombre' => '', 
+    'usuario' => '', 
     'contrasena'=>'',
     'descUsuario'=>''
 ];
 $aRespuestas=[ //Array donde recogeremos la respuestas correctas (si $entradaOK)
-    'nombre' => '',  
+    'usuario' => '',  
     'contrasena'=>'',
     'descUsuario'=>''
 ]; 

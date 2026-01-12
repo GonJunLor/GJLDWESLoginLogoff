@@ -6,7 +6,7 @@
 
 require_once 'core/231018libreriaValidacion.php';
 
-require_once  'conf/EDconfDBPDO.php';
+require_once 'conf/EDconfDBPDO.php';
 
 //Cargamos la definición de la clase
 require_once 'model/Usuario.php'; 
@@ -36,8 +36,10 @@ $view=[
 $titulo=[
     'layout' => 'Layout',
     'inicioPublico' => 'Inicio Público',
+    'login' => 'Login',
     'inicioPrivado' => 'Inicio Privado',
-    'detalle' => 'Detalle'
+    'detalle' => 'Detalle',
+    'registro' => 'Registro'
 ];
 $textoBotonIniciarSesion = 'Iniciar Sesión';
 $estadoBarraNavegacion = 'visible';
