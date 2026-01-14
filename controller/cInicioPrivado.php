@@ -29,6 +29,13 @@ if (isset($_REQUEST['inicio'])) {
     exit;
 }
 
+// comprueba si existe una cookie de idioma y si no existe la crea en español
+if (!isset($_COOKIE['idioma'])) {
+    setcookie("idioma", "ES", time()+604.800); // caducidad 1 semana
+    header('Location: ./indexLoginLogoff.php');
+    exit;
+}
+
 // comprueba si se ha pulsado cualquier botón de idioma y pone en la cookie su valor para establecer el idioma
 if (isset($_REQUEST['idioma'])) {
     setcookie("idioma", $_REQUEST['idioma'], time()+604.800); // caducidad 1 semana
