@@ -196,7 +196,7 @@ final class UsuarioPDO {
      * @return boolean true si existe, false si no
      */
     public static function validarCodNoExiste($codUsuario){
-        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = $codUsuario";
+        $sql = "SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario = '$codUsuario'";
 
         return DBPDO::ejecutarConsulta($sql)->rowCount() > 0;
     }

@@ -4,6 +4,14 @@
 * @since: 16/12/2025
 */
 
+// comprobamos que existe la sesion para este usuario, sino redirige al login
+if (isset($_SESSION["usuarioDAW205AppLoginLogoff"])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'login';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
 if (isset($_REQUEST['volver'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
@@ -21,6 +29,7 @@ if (isset($_REQUEST['cerrarSesion'])) {
     exit;
 }
 
+// Volvemoa al inicio público pero sin cerrar sesión
 if (isset($_REQUEST['inicio'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPublico';

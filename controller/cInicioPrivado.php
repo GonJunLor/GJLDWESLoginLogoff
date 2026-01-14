@@ -4,10 +4,46 @@
 * @since: 16/12/2025
 */
 
+// comprobamos que existe la sesion para este usuario, sino redirige al login
+if (isset($_SESSION["usuarioDAW205AppLoginLogoff"])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'login';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
 // vamos a la página detalle
 if (isset($_REQUEST['detalle'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'detalle';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+
+// vamos a la página error
+if (isset($_REQUEST['error'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $consultaError = "SELECT * FROM T03_Cuestion";
+    DBPDO::ejecutarConsulta($consultaError);
+    $_SESSION['paginaEnCurso'] = 'error';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+// vamos a la página mantenimiento de departamento
+if (isset($_REQUEST['departamento'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    // como no la tenemos vamos a la pagina en construcción
+    $_SESSION['paginaEnCurso'] = 'wip';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+// vamos a la página de cuenta del usuario
+if (isset($_REQUEST['cuenta'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'cuenta';
     header('Location: indexLoginLogoff.php');
     exit;
 }
@@ -22,6 +58,7 @@ if (isset($_REQUEST['cerrarSesion'])) {
     exit;
 }
 
+// Volvemoa al inicio público pero sin cerrar sesión
 if (isset($_REQUEST['inicio'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPublico';

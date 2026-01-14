@@ -20,7 +20,9 @@ $controller=[
     'inicioPrivado' => 'controller/cInicioPrivado.php',
     'detalle' => 'controller/cDetalle.php',
     'error' => 'controller/cError.php',
-    'registro' => 'controller/cRegistro.php'
+    'registro' => 'controller/cRegistro.php',
+    'wip' => 'controller/cWIP.php',
+    'cuenta' => 'controller/cCuenta.php'
 ];
 
 $view=[
@@ -30,7 +32,9 @@ $view=[
     'inicioPrivado' => 'view/vInicioPrivado.php',
     'detalle' => 'view/vDetalle.php',
     'error' => 'view/vError.php',
-    'registro' => 'view/vRegistro.php'
+    'registro' => 'view/vRegistro.php',
+    'wip' => 'view/vWIP.php',
+    'cuenta' => 'view/vCuenta.php'
 ];
 
 $titulo=[
@@ -39,7 +43,8 @@ $titulo=[
     'login' => 'Login',
     'inicioPrivado' => 'Inicio Privado',
     'detalle' => 'Detalle',
-    'registro' => 'Registro'
+    'registro' => 'Registro',
+    'cuenta' => 'Cuenta de Usuario'
 ];
 $textoBotonIniciarSesion = 'Iniciar Sesión';
 $estadoBarraNavegacion = 'visible';

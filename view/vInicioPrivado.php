@@ -14,6 +14,9 @@
 <main>
 <form action="" method="post">
     <button name="detalle" class="boton"><span>Detalle</span></button>
+    <button name="error" class="boton"><span>Error</span></button>
+    <button name="departamento" class="boton"><span>Mantenimiento de Departamento</span></button>
+    <button name="cuenta" class="boton"><span>Cuenta de Usuario</span></button>
 </form>
 <?php
 
