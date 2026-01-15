@@ -30,6 +30,10 @@ INSERT INTO T01_Usuario (T01_CodUsuario,T01_Password,T01_DescUsuario)
         ('oscar',SHA2('oscarpaso',256),'Oscar Pozuelo'),
         ('jesus',SHA2('jesuspaso',256),'Enrique Nieto'),
         ('amor',SHA2('amorpaso',256),'Amor Rodriguez'),
-        ('albertoB',SHA2('albertoBpaso',256),'Alberto Bahillo')
+        ('albertoB',SHA2('albertoBpaso',256),'Alberto Bahillo'),
+        ('antonio',SHA2('antoniopaso',256),'Antonio Jañez'),
+        ('jorge',SHA2('jorgepaso',256),'Jorge Corral'),
+        ('claudio',SHA2('claudiopaso',256),'Claudio Lozano'),
+        ('gisela',SHA2('giselapaso',256),'Gisela Folgueral')
 ;
 

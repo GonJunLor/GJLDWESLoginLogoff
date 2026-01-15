@@ -4,6 +4,14 @@
 * @since: 16/12/2025
 */
 
+// comprobamos que existe la sesion para este usuario, sino redirige al login
+if (isset($_SESSION["usuarioDAW205AppLoginLogoff"])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'login';
+    header('Location: indexLoginLogoff.php');
+    exit;
+}
+
 if (isset($_REQUEST['volver'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPrivado';
@@ -21,10 +29,18 @@ if (isset($_REQUEST['cerrarSesion'])) {
     exit;
 }
 
+// Volvemoa al inicio público pero sin cerrar sesión
 if (isset($_REQUEST['inicio'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
     $_SESSION['paginaEnCurso'] = 'inicioPublico';
     header('Location: indexLoginLogoff.php');
+    exit;
+}
+
+// comprueba si existe una cookie de idioma y si no existe la crea en español
+if (!isset($_COOKIE['idioma'])) {
+    setcookie("idioma", "ES", time()+604.800); // caducidad 1 semana
+    header('Location: ./indexLoginLogoff.php');
     exit;
 }
 
