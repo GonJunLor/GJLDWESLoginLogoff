@@ -36,28 +36,33 @@ if (isset($_REQUEST["entrar"])) {//Código que se ejecuta cuando se envía el fo
             $entradaOK = false;
         } 
     }
+
+    if ($entradaOK) {
+        $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
+
+        // si esta en la BBDD ponemos a false
+        if (isset($oUsuario)) {
+            $entradaOK = false;
+            $aErrores['usuario'] = "El nombre de usuario ya existe.";
+        }
+    }
     
 } else {//Código que se ejecuta antes de rellenar el formulario
     $entradaOK = false;
 }
 
-// Si la validación de datos es correcta procedemos a crear el usuario
+// Si la validación de datos es correcta procedemos a crear el usuario y guardarlo en la sesion
 if ($entradaOK) {
-    $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['usuario'], $_REQUEST['contrasena']);
 
-    // si NO está el usuario en la BBDD lo creamos y lo metemos en la sesión
-    if (!isset($oUsuario)) {
-        $oUsuario = UsuarioPDO::altaUsuario($_REQUEST['usuario'], $_REQUEST['contrasena'], $_REQUEST['descUsuario']);
+    $oUsuario = UsuarioPDO::altaUsuario($_REQUEST['usuario'], $_REQUEST['contrasena'], $_REQUEST['descUsuario']);
 
-        $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
+    $_SESSION['usuarioGJLDWESLoginLogoff'] = $oUsuario;
 
-        $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
-        $_SESSION['paginaEnCurso'] = 'inicioPrivado';
-        header('Location: indexLoginLogoff.php');
-        exit;
-    } else {
-        $aErrores['usuario'] = "El nombre de usuario ya existe.";
-    }
+    $_SESSION['paginaAnterior'] = $_SESSION['paginaEnCurso'];
+    $_SESSION['paginaEnCurso'] = 'inicioPrivado';
+    header('Location: indexLoginLogoff.php');
+    exit;
+
 }
 
 $estadoBarraNavegacion = 'oculto';

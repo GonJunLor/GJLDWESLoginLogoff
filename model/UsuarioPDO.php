@@ -95,8 +95,8 @@ final class UsuarioPDO {
         // SQL para insertar el nuevo registro
         // El perfil por defecto debe ser 'usuario'
         $sql = <<<SQL
-            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) 
-            VALUES (:usuario, SHA2(:password, 256), :descripcion, 'usuario')
+            INSERT INTO T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_NumConexiones, T01_FechaHoraUltimaConexion, T01_Perfil) 
+            VALUES (:usuario, SHA2(:password, 256), :descripcion, 1, NOW(), 'usuario')
         SQL;
 
         $consulta = DBPDO::ejecutarConsulta($sql, [
@@ -107,7 +107,6 @@ final class UsuarioPDO {
 
         if ($consulta) {
             // Si la inserción tiene éxito, se valida al usuario para obtener el objeto completo
-            // (y se rellena las fechas iniciales y el número de conexiones)
             $oUsuario = self::validarUsuario($codUsuario, $password);
         }
 

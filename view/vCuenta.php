@@ -16,8 +16,7 @@
     <h2>DATOS PERSONALES</h2>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post"> 
         Usuario:
-        <input type="text" id="usuario" name="usuario" value="<?php echo $avCuenta['codUsuario'] ?>">
-        <span class="error"><?php echo $aErrores['usuario'] ?></span>
+        <input type="text" id="usuario" name="usuario" value="<?php echo $avCuenta['codUsuario'] ?>" disabled>
         <br>
         Nombre y apellidos:
         <input type="text" id="descUsuario" name="descUsuario" value="<?php echo $avCuenta['descUsuario'] ?>">
